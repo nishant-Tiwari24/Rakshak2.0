@@ -4,6 +4,7 @@ import connect from './database/dbconfig.js';
 import Patient from './models/patient.js';
 import SOSRequest from './models/sosRequest.js';
 import cors from 'cors';
+import mongoose from 'mongoose';
 
 dotenv.config();
 const app = express();
@@ -12,7 +13,7 @@ const PORT = process.env.PORT || 5500;
 app.use(express.json());
 app.use(cors({
   origin: "http://localhost:5173",
-  methods: ['POST', 'GET', 'PUT','DELETE']
+  methods: ['POST', 'GET', 'PUT', 'DELETE']
 }));
 connect();
 
@@ -44,7 +45,7 @@ app.post('/sos', async (req, res) => {
       reason,
       healthProblem,
       estimatedTime,
-      status: 'pending', 
+      status: 'pending',
     });
     const savedSOSRequest = await newSOSRequest.save();
     res.status(201).json(savedSOSRequest);
@@ -72,7 +73,7 @@ app.put('/sos/:id', async (req, res) => {
 
   try {
     const updatedSOSRequest = await SOSRequest.findByIdAndUpdate(
-      id,
+      mongoose.Types.ObjectId(id),
       { status },
       { new: true }
     );
@@ -90,7 +91,21 @@ app.put('/sos/:id', async (req, res) => {
   }
 });
 
-app.post('/patients', async (req, res) => {
+app.delete('/sos/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deletedSOSRequest = await SOSRequest.findByIdAndDelete(mongoose.Types.ObjectId(id));
+    if (!deletedSOSRequest) {
+      return res.status(404).json({ error: 'SOS request not found' });
+    }
+    res.status(200).json({ message: 'SOS request deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting SOS request:', error);
+    res.status(500).json({ error: 'Failed to delete SOS request.' });
+  }
+});
+
+app.post('/patient', async (req, res) => {
   try {
     const { patientName, age, gender, bloodType, allergies, diagnosis, treatment } = req.body;
     const newPatient = new Patient({
@@ -120,11 +135,24 @@ app.get('/patients', async (req, res) => {
   }
 });
 
-app.get('/patients/:id', async (req, res) => {
-  const patientId = req.params.id;
-
+app.delete('/patients/:id', async (req, res) => {
+  const { id } = req.params;
   try {
-    const patient = await Patient.findById(patientId);
+    const deletedPatient = await Patient.findByIdAndDelete(mongoose.Types.ObjectId(id));
+    if (!deletedPatient) {
+      return res.status(404).json({ error: 'Patient not found' });
+    }
+    res.status(200).json({ message: 'Patient deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting patient:', error);
+    res.status(500).json({ error: 'Failed to delete patient.' });
+  }
+});
+
+app.get('/patients/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const patient = await Patient.findById(mongoose.Types.ObjectId(id));
 
     if (!patient) {
       return res.status(404).json({ error: 'Patient not found' });
