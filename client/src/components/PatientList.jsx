@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { QRCode } from 'react-qrcode-logo';
-import { toPng } from 'html-to-image';
 import { saveAs } from 'file-saver';
 
 const PatientList = () => {
