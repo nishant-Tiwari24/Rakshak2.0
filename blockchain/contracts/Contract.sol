@@ -1,3 +1,4 @@
+pragma solidity ^0.8.9;
 
 contract VoteMain {
     address public owner;
