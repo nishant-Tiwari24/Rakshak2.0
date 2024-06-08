@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Section from './Section'; 
 import Button from './Button';
 import axios from 'axios';
+import FaceDetection from './FaceDetection';
 
 const PatientRecord = () => {
   const [patientName, setPatientName] = useState('');
@@ -43,8 +44,8 @@ const PatientRecord = () => {
   };
 
   return (
-    <Section className="text-white flex justify-center items-center -mt-10">
-      <form onSubmit={handleSubmit} className="w-[1000px] rounded-md border bg-zinc-900 border-zinc-700 p-10">
+    <Section className="text-white flex justify-AROUND items-center -mt-10 ml-14">
+      <form onSubmit={handleSubmit} className="w-[1000px] rounded-md border bg-zinc-900 border-zinc-700 p-10 ">
         <h2 className="text-2xl font-bold mb-4">Patient Record</h2>
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Patient Name:</label>
@@ -127,6 +128,7 @@ const PatientRecord = () => {
           </Button>
         </div>
       </form>
+      <FaceDetection/>
     </Section>
   );
 };
