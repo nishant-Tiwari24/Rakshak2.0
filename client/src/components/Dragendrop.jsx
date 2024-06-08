@@ -22,16 +22,6 @@ export const Dragendrop = ({ onFileData }) => {
         const selectedFiles = event.target.files;
         setFiles([...files, ...selectedFiles]);
         onFileData([...files, ...selectedFiles]);
-
-        // const file = event.target.files;
-        // if (file.length > 0) {
-        //     const reader = new FileReader();
-        //     reader.onload = function (fileEvent) {
-        //         const fileData = fileEvent.target.result;
-        //         console.log(fileData);
-        //     };
-        //     reader.readAsText(file[0]);
-        // }
     }
 
     const removeFile = (index) => {
@@ -57,7 +47,7 @@ export const Dragendrop = ({ onFileData }) => {
                         onChange={handleFileChange}
                         ref={inputRef}
                     />
-                    <button onClick={() => inputRef.current.click()} className="bg-gray-700 w-24 h- px-2 rounded-md border-gray-400 border-2">upload</button>
+                    <button onClick={() => inputRef.current.click()} className="bg-gray-700 w-24 h- px-4 rounded-md border-gray-400 border-2 hover:border-gray-600">upload</button>
                 </div>
             )}
             {!drop && (

@@ -12,7 +12,7 @@ const Share = () => {
     datasets: [
       {
         label: 'Total Data Sent',
-        data: [1, 9, 3, 5, 2, 3, 5],
+        data: [4, 2, 0, 0, 0, 0, 0],
         fill: true,
         borderColor: 'rgb(75, 192, 192)',
         backgroundColor: 'gray',
@@ -26,7 +26,7 @@ const Share = () => {
     datasets: [
       {
         label: 'Total Data Sent',
-        data: [1, 4, 3, 5, 12, 3, 15],
+        data: [1, 3, 0, 0, 0, 0, 0],
         fill: true,
         borderColor: 'lime',
         backgroundColor: 'green',
