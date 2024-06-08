@@ -6,16 +6,12 @@ function App(){
     const videoRef = useRef()
     const canvasRef = useRef()
   
-    // LOAD FROM USEEFFECT
     useEffect(()=>{
       startVideo()
       videoRef && loadModels()
   
     },[])
-  
-  
-  
-    // OPEN YOU FACE WEBCAM
+
     const startVideo = ()=>{
       navigator.mediaDevices.getUserMedia({video:true})
       .then((currentStream)=>{
