@@ -83,6 +83,8 @@ const PatientList = () => {
                                             value={generateQRCodeData(patient)}
                                             includeMargin={true} 
                                         />
+
+                                        
                                     </div>
                                 </td>
                                 <td className="px-6 py-4">
