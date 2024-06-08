@@ -1,6 +1,20 @@
 {
-  "name": "records",
+  "name": "your-project-name",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
+  "description": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3",
+    "multer": "^1.4.5-lts.1"
+  },
+  "author": "",
+  "license": "ISC"
 }
