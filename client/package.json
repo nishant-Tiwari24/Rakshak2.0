@@ -22,6 +22,7 @@
     "ethers": "^5",
     "face-api.js": "^0.22.2",
     "file-saver": "^2.0.5",
+    "framer-motion": "^11.2.10",
     "jsbarcode": "^3.11.6",
     "multicoin-address-validator": "^0.5.16",
     "qrcode.react": "^3.1.0",
