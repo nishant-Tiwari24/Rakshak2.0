@@ -40,28 +40,28 @@ export const navigation = [
 
   {
     id: "1",
-    title: "File Exchange",
+    title: "Document Transfer",
     url: "/shareService",
   },
   {
     id: "2",
-    title: "File Guardian",
+    title: "Document Sentinel",
     url: "/digilocker",
   },
   {
     id: "4",
-    title: "Workspace",
+    title: "Workstation",
     url: "/meet",
   },
 
   {
     id: "8",
-    title: "Registration",
+    title: "Consultation",
     url: "/record",
   },
   {
     id: "6",
-    title: "Main Dashboard",
+    title: "Analytics insights",
     url: "/maindash",
   },
   {

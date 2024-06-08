@@ -30,9 +30,9 @@ const Hero = () => {
       <div className="container relative" ref={parallaxRef}>
         <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
           <h1 className="h1 mb-6">
-          Empower Robust Encrypted Sharing with Web 3.0 {` `}
+          Advance EMS, ML Workspace, Web 3.0 Security with {` `}
             <span className="inline-block relative">
-            Rakshak{" "}
+            Rakshak 2.0{" "}
               <img
                 src={curve}
                 className="absolute top-full left-0 w-full xl:-mt-2"
@@ -43,7 +43,7 @@ const Hero = () => {
             </span>
           </h1>
           <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8">
-          Exchange sensitive information and documents through our Web 3.0 platform, ensuring confidentiality and integrity at every step.
+          Empowering Healthcare with Smart SOS, Seamless Queue Management, AI-Driven Workspaces, and Blockchain Data Security.
           </p>
           <ConnectWallet />
         </div>
@@ -76,7 +76,7 @@ const Hero = () => {
                 <ScrollParallax isAbsolutelyPositioned>
                   <Notification
                     className="hidden absolute -right-[5.5rem] bottom-[11rem] w-[18rem] xl:flex"
-                    title="Data Recieved"
+                    title="Revolutionaized"
                   />
                 </ScrollParallax>
               </div>
@@ -97,12 +97,10 @@ const Hero = () => {
           <BackgroundCircles />
         </div>
 
-        <CompanyLogos className="hidden relative z-10 mt-20 lg:block" />
       </div>
 
       <BottomLine />
     </Section>
-    <Pricing />
     </>
   );
 };

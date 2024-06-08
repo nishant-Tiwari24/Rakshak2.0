@@ -52,9 +52,8 @@ const Header = () => {
     >
       <div className="flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
         <Link className="block w-[12rem] xl:mr-8" to="/">
-          <p className="text-3xl font-bold">BRIEFCASE</p>
+          <p className="text-3xl font-bold w-96">RAKSHAK 2.0</p>
         </Link>
-      {/* <Button onClick={check}>login</Button> */}
         <nav
           className={`${
             openNavigation ? "flex" : "hidden"
@@ -81,10 +80,7 @@ const Header = () => {
 
           <HamburgerMenu />
         </nav>
-
-        
       <ConnectWallet/>
-
         <Button
           className="ml-auto lg:hidden"
           px="px-3"
