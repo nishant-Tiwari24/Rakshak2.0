@@ -1,0 +1,26 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "src/main.jsx",
+            "use": "@vercel/node"
+        }
+    ],
+    "rewrites":[
+        {
+            "source": "/(.*)",
+            "destination": "/"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "src/main.jsx",
+            "methods": ["GET", "POST"],
+            "headers": {
+                "Access-Control-Allow-Origin": "*"
+            }
+        }
+    ]
+
+}
