@@ -31,6 +31,19 @@ const SOSRequestList = () => {
         }
     };
 
+    const handleDelete = async (id) => {
+        console.log(`Deleting SOS request ${id}`);
+        try {
+            await axios.delete(`http://localhost:5500/sos/${id}`);
+            setSOSRequests(prevRequests =>
+                prevRequests.filter(request => request._id !== id)
+            );
+            console.log('Deleted SOS request:', id);
+        } catch (error) {
+            console.error(`Error deleting SOS request ${id}:`, error);
+        }
+    };
+
     let count = 1;
 
     const openGoogleMaps = (latitude, longitude) => {
@@ -52,6 +65,7 @@ const SOSRequestList = () => {
                             <th className="px-6 py-3 text-lg font-bold uppercase border-b border-gray-700">Estimated Time</th>
                             <th className="px-6 py-3 text-lg font-bold uppercase border-b border-gray-700">Location</th>
                             <th className="px-6 py-3 text-red-500 text-lg font-bold uppercase border-b border-gray-700">Ambulance</th>
+                            <th className="px-6 py-3 text-lg font-bold uppercase border-b border-gray-700">Actions</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y text-light divide-zinc-800">
@@ -102,6 +116,14 @@ const SOSRequestList = () => {
                                             Pending
                                         </button>
                                     </div>
+                                </td>
+                                <td className="px-6 py-4">
+                                    <button
+                                        className="py-1 px-3 bg-red-500 hover:bg-red-600 text-white rounded"
+                                        onClick={() => handleDelete(request._id)}
+                                    >
+                                        Delete
+                                    </button>
                                 </td>
                             </tr>
                         ))}

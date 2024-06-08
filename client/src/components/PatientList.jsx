@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { QRCode } from 'react-qrcode-logo';
+import { toPng } from 'html-to-image'; 
 import { saveAs } from 'file-saver';
 
 const PatientList = () => {
@@ -14,7 +15,7 @@ const PatientList = () => {
                 const response = await axios.get('http://localhost:5500/patients');
                 setPatients(response.data);
             } catch (error) {
-                console.error('Error fetching patients:', error);
+                console.error('Error fetching patients:', error.response || error.message);
             }
         };
         fetchPatients();
@@ -25,9 +26,13 @@ const PatientList = () => {
     };
 
     const downloadQRCode = async (id) => {
-        const node = qrCodeRefs.current[id];
-        const dataUrl = await toPng(node);
-        saveAs(dataUrl, `${id}-qrcode.png`);
+        try {
+            const node = qrCodeRefs.current[id];
+            const dataUrl = await toPng(node);
+            saveAs(dataUrl, `${id}-qrcode.png`);
+        } catch (error) {
+            console.error('Error generating QR code:', error);
+        }
     };
 
     let count = 1;
