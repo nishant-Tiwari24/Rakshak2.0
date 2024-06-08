@@ -22,7 +22,7 @@ const VideoCallInput = () => {
       <div className="flex flex-col md:flex-row justify-between">
         <div className="left w-full md:w-3/5 left-0 max-w-3xl h-52 mx-auto bg-black shadow-md rounded border border-zinc-800 px-8 pt-6 pb-8 mb-4 md:ml-16">
           <h1 className="text-2xl font-light mb-6 text-white">
-            <FaUser className="inline-block mr-2 text-red-500 font-normal" /> Enter wallet address or name to join the meet
+            <FaUser className="inline-block mr-2 text-red-500 font-normal" /> End to end encrypted meetings
           </h1>
           <div className="mb-6">
             <div className="flex items-center rounded-full overflow-hidden w-full bg-gray-800 px-4 py-2 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-opacity-75">
