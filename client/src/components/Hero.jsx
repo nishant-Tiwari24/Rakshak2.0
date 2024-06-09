@@ -30,7 +30,7 @@ const Hero = () => {
       <div className="container relative" ref={parallaxRef}>
         <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
           <h1 className="h1 mb-6">
-          Advance EMS, ML Workspace, Web 3.0 Security with {` `}
+          Web 3.0 Security, Advance SOS ML Workspace with {` `}
             <span className="inline-block relative">
             Rakshak 2.0{" "}
               <img
@@ -90,7 +90,7 @@ const Hero = () => {
               className="w-full"
               width={1440}
               height={1800}
-              alt="hero"
+              alt="/doctorBaba (3).png"
             />
           </div>
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { QRCode } from 'react-qrcode-logo';
+import { toPng } from 'html-to-image';
 import { saveAs } from 'file-saver';
 
 const PatientList = () => {
@@ -30,6 +31,15 @@ const PatientList = () => {
         saveAs(dataUrl, `${id}-qrcode.png`);
     };
 
+    const deletePatient = async (id) => {
+        try {
+            await axios.delete(`http://localhost:5500/patients/${id}`);
+            setPatients(patients.filter(patient => patient._id !== id));
+        } catch (error) {
+            console.error('Error deleting patient:', error);
+        }
+    };
+
     let count = 1;
 
     return (
@@ -49,6 +59,7 @@ const PatientList = () => {
                             <th className="px-6 py-3 text-lg font-bold uppercase border-b border-gray-700">Treatment</th>
                             <th className="px-6 py-3 text-lg font-bold uppercase border-b border-gray-700">QR Code</th>
                             <th className="px-6 py-3 text-lg font-bold uppercase border-b border-gray-700">Download</th>
+                            <th className="px-6 py-3 text-lg font-bold uppercase border-b border-gray-700">Delete</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y text-light divide-zinc-800">
@@ -73,6 +84,8 @@ const PatientList = () => {
                                             size={50}
                                             includeMargin={true} 
                                         />
+
+                                        
                                     </div>
                                 </td>
                                 <td className="px-6 py-4">
@@ -81,6 +94,14 @@ const PatientList = () => {
                                         className="bg-amber-700 hover:bg-amber-800 text-white font-light py-2 px-4 rounded"
                                     >
                                         Download
+                                    </button>
+                                </td>
+                                <td className="px-6 py-4">
+                                    <button 
+                                        onClick={() => deletePatient(patient._id)} 
+                                        className="bg-red-700 hover:bg-red-800 text-white font-light py-2 px-4 rounded"
+                                    >
+                                        Delete
                                     </button>
                                 </td>
                             </tr>

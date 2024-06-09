@@ -5,6 +5,8 @@ import { FaUser, FaEnvelope, FaArrowRight } from 'react-icons/fa';
 import { MdMedicalServices } from 'react-icons/md';
 import Button from './Button';
 import DiseaseInputForm from './ChatBot';
+import DiseaseSpreadChart from './DiseaseSpreadChart';
+import FoodNutrientsGraph from './FoodNutrientGraph';
 
 const VideoCallInput = () => {
   const [input, setInput] = useState('');
@@ -19,10 +21,10 @@ const VideoCallInput = () => {
       <h1 className="text-3xl font-bold mb-8 -mt-8 text-center text-zinc-600">
         Workspace for Doctors
       </h1>
-      <div className="flex flex-col md:flex-row justify-between">
+      <div className="flex flex-col md:flex-row justify-between gap-2">
         <div className="left w-full md:w-3/5 left-0 max-w-3xl h-52 mx-auto bg-black shadow-md rounded border border-zinc-800 px-8 pt-6 pb-8 mb-4 md:ml-16">
           <h1 className="text-2xl font-light mb-6 text-white">
-            <FaUser className="inline-block mr-2 text-red-500 font-normal" /> Enter wallet address or name to join the meet
+            <FaUser className="inline-block mr-2 text-red-500 font-normal" /> End to end encrypted meetings
           </h1>
           <div className="mb-6">
             <div className="flex items-center rounded-full overflow-hidden w-full bg-gray-800 px-4 py-2 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-opacity-75">
@@ -52,9 +54,18 @@ const VideoCallInput = () => {
           </Button>
         </div>
       </div>
-      <div className='-mt-16'>
-        <DiseaseInputForm/>
+      <div className="flex flex-col md:flex-row justify-center mt-8 gap-4">
+        <div className="w-full md:w-1/2 mb-8 mx-auto ml-28">
+          <DiseaseSpreadChart />
+        </div>
+        <div className="w-full md:w-1/2 mb-8 mx-auto mr-24">
+          <FoodNutrientsGraph />
+        </div>
       </div>
+      <div className="-mt-16 ">
+        <DiseaseInputForm />
+      </div>
+      
     </Section>
   );
 };

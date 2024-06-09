@@ -3,7 +3,7 @@ import axios from 'axios';
 import Chart from 'chart.js/auto';
 import { FaMars, FaBirthdayCake } from 'react-icons/fa';
 
-const PatientDashboard = () => {
+const PatientDashboard = ({ setTotalPatients, setTotalAppointments }) => {
     const [patientData, setPatientData] = useState({
         femalePatients: 0,
         malePatients: 0,
@@ -43,12 +43,18 @@ const PatientDashboard = () => {
             try {
                 const response = await axios.get('http://localhost:5500/patientsdashboard');
                 setPatientData(response.data);
+                const totalPatients = response.data.femalePatients + response.data.malePatients + response.data.otherPatients + response.data.nonPatients;
+                setTotalPatients(totalPatients);
+
+                // Calculate total appointments
+                const totalAppointments = totalPatients + statusData.sent + statusData.pending;
+                setTotalAppointments(totalAppointments);
             } catch (error) {
                 console.error('Error fetching patient data:', error);
             }
         };
         fetchPatientData();
-    }, []);
+    }, [setTotalPatients, setTotalAppointments, statusData.sent, statusData.pending]);
 
     const { femalePatients, malePatients, otherPatients, nonPatients, ageCategories } = patientData;
 
@@ -140,7 +146,7 @@ const PatientDashboard = () => {
                             label: 'Status of Requests',
                             data: [statusData.sent, statusData.received, statusData.pending],
                             borderColor: 'rgba(255, 99, 132, 1)', // Red
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)', 
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)', 
                             fill: true,
                         },
                     ],

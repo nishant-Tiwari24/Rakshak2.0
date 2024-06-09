@@ -12,10 +12,9 @@ const Share = () => {
     datasets: [
       {
         label: 'Total Data Sent',
-        data: [4, 2, 0, 0, 0, 0, 0],
+        data: [0, 0, 0, 0, 0, 0, 0],
         fill: true,
         borderColor: 'rgb(75, 192, 192)',
-        backgroundColor: 'gray',
         tension: 0.1,
       },
     ],
@@ -29,7 +28,6 @@ const Share = () => {
         data: [1, 3, 0, 0, 0, 0, 0],
         fill: true,
         borderColor: 'lime',
-        backgroundColor: 'green',
         tension: 0.1,
       },
     ],
@@ -59,7 +57,7 @@ const Share = () => {
                                 Total Documents Sent
                             </h3>
                             <p className="text-3xl">4 Files</p>
-                            <p className="text-green-200">10.4% Last Month</p>
+                            <p className="text-green-200">100% Last Month</p>
                         </div>
           <Line data={rdata} />
         </div>
@@ -68,8 +66,8 @@ const Share = () => {
                             <h3 className="text-xl font-bold flex items-center">
                                 Total Documents Recieved
                             </h3>
-                            <p className="text-3xl">12 Files</p>
-                            <p className="text-red-200">8.6% Last Month</p>
+                            <p className="text-3xl">0 Files</p>
+                            <p className="text-red-200">0% Last Month</p>
                         </div>
           <Line data={sdata} />
         </div>
