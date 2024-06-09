@@ -97,17 +97,9 @@ if selected == 'Diabetes Prediction':
             diabetes_result = "The person has diabetes."
             detailed_info = """
             **Diabetes Overview:**
-            Diabetes is a chronic (long-lasting) health condition that affects how your body turns food into energy. 
-            Most of the food you eat is broken down into sugar (also called glucose) and released into your bloodstream. 
-            When your blood sugar goes up, it signals your pancreas to release insulin. Insulin acts like a key to let 
-            the blood sugar into your body’s cells for use as energy.
-
-            **Management and Treatment:**
-            1. **Healthy Eating:** Choose healthy foods and maintain a healthy weight.
-            2. **Physical Activity:** Stay physically active to help control blood sugar levels.
-            3. **Medication:** Follow your doctor’s prescription to manage blood sugar levels.
-            4. **Monitoring Blood Sugar:** Regularly monitor your blood sugar levels to keep them in check.
-            """
+            Diabetes is a chronic (long-lasting) health condition that affects how your body processes food into energy. Most of the food you consume is broken down into sugar (glucose), which enters your bloodstream. When your blood sugar levels rise, your pancreas releases insulin, a hormone that helps regulate glucose uptake into your body's cells for energy. In diabetes, this process is disrupted, leading to high blood sugar levels (hyperglycemia) if left unmanaged. Effective management and treatment of diabetes involve several key strategies. First and foremost, adopting a healthy eating plan that includes whole grains, fruits, vegetables, lean proteins, and healthy fats helps regulate blood sugar levels and supports overall health. Maintaining a healthy weight through balanced nutrition is crucial in managing diabetes. Regular physical activity is also essential; exercise helps lower blood sugar levels, improves insulin sensitivity, and contributes to weight management. Medications prescribed by your healthcare provider, such as insulin injections or oral medications like metformin, help control blood sugar levels. It's important to follow your doctor's prescription and monitor your response to medications carefully. Monitoring blood sugar levels regularly with a glucose meter or continuous glucose monitor (CGM) allows you to track how well you're managing diabetes and make adjustments as needed. Additionally, maintaining regular check-ups with your healthcare team is vital for ongoing assessment, support, and adjustments to your diabetes management plan. By integrating these strategies into daily life and working closely with healthcare professionals, individuals with diabetes can effectively manage their condition, reduce complications, and improve their quality of life.
+"""
+            st.image("diabetes.png")
         else:
             diabetes_result = "The person does not have diabetes."
 
@@ -241,17 +233,9 @@ if selected == 'Kidney Disease Prediction':
             kidney_disease_result = "The person has kidney disease."
             detailed_info = """
             **Kidney Disease Overview:**
-            Chronic kidney disease (CKD) means your kidneys are damaged and can’t filter blood the way they should. 
-            The disease is called “chronic” because the damage to your kidneys happens slowly over a long period of time. 
-            This damage can cause wastes to build up in your body. CKD can also cause other health problems.
-
-            **Management and Treatment:**
-            1. **Lifestyle Changes:** Healthy eating, physical activity, and maintaining a healthy weight.
-            2. **Medications:** Prescribed to control symptoms and manage complications.
-            3. **Dialysis:** Required if kidneys fail to filter blood.
-            4. **Kidney Transplant:** In severe cases, a transplant might be necessary.
-            5. **Monitoring:** Regular check-ups to monitor kidney function and overall health.
-            """
+            Chronic kidney disease (CKD) refers to the gradual loss of kidney function over an extended period. The kidneys play a crucial role in filtering waste and excess fluids from the blood, which are then excreted in the urine. When the kidneys are damaged, they lose this filtering ability, leading to the accumulation of waste products in the body. CKD is termed "chronic" because the damage occurs slowly and progressively, often without noticeable symptoms in the early stages. As the disease advances, it can cause various health problems, including hypertension, anemia, weak bones, poor nutritional health, and nerve damage. Effective management and treatment of CKD involve a comprehensive approach. Lifestyle changes are essential; a kidney-friendly diet low in sodium, potassium, and phosphorus, along with adequate hydration, helps manage symptoms and slow disease progression. Regular physical activity and maintaining a healthy weight can improve overall health and reduce the risk of complications. Medications are prescribed to control symptoms and manage complications, such as antihypertensives to lower blood pressure, erythropoietin to treat anemia, and phosphate binders to reduce phosphate levels. In advanced stages of CKD, when the kidneys can no longer effectively filter the blood, dialysis or a kidney transplant becomes necessary. Dialysis, either hemodialysis or peritoneal dialysis, helps remove waste products and excess fluid from the blood. A kidney transplant, in severe cases, provides a permanent solution by replacing the damaged kidney with a healthy one from a donor. Regular monitoring and check-ups with healthcare providers are critical to managing CKD effectively. This includes routine blood tests to monitor kidney function, blood pressure checks, and assessments of overall health. Effective communication with healthcare providers, adherence to prescribed treatments, and a proactive approach to managing risk factors are essential in preventing the progression of CKD and maintaining a good quality of life.
+        """
+            st.image('kidney disease.png');
         else:
             kidney_disease_result = "The person does not have kidney disease."
 
