@@ -81,6 +81,7 @@ const PatientList = () => {
                                     <div ref={el => qrCodeRefs.current[patient._id] = el}>
                                         <QRCode 
                                             value={generateQRCodeData(patient)}
+                                            size={50}
                                             includeMargin={true} 
                                         />
 
