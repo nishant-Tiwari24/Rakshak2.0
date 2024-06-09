@@ -107,7 +107,20 @@ app.delete('/sos/:id', async (req, res) => {
 
 app.post('/patient', async (req, res) => {
   try {
-    const { patientName, age, gender, bloodType, allergies, diagnosis, treatment } = req.body;
+    const {
+      patientName,
+      age,
+      gender,
+      bloodType,
+      allergies,
+      diagnosis,
+      treatment,
+      roomTemperature,
+      bodyTemperature,
+      oxygenLevel,
+      bmi,
+      heartRate,
+    } = req.body;
     const newPatient = new Patient({
       patientName,
       age,
@@ -116,6 +129,11 @@ app.post('/patient', async (req, res) => {
       allergies,
       diagnosis,
       treatment,
+      roomTemperature,
+      bodyTemperature,
+      oxygenLevel,
+      bmi,
+      heartRate,
     });
     const savedPatient = await newPatient.save();
     res.status(201).json(savedPatient);

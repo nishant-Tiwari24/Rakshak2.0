@@ -37,10 +37,6 @@ const Dashboard = () => {
         const data = await contract.call("getFiles", [address]);
         setMsg(data);
         console.log(msg.length);
-        // const _cid = msg[0].cid;
-        // const _receiver = msg[0].receiver;
-        // const _timestamp = convertUTC(msg[0].timestamp);
-        // return console.log(`CID: ${_cid}\nReceiver: ${_receiver}\nTimeStamp: ${_timestamp}`);
       }
     };
     fetchData();
@@ -49,9 +45,6 @@ const Dashboard = () => {
   const handleBoxClick = async (item) => {
     try {
       console.log(item.cid);
-      // https://bd-one-omega.vercel.app/
-      // const res = await axios.get(`http://localhost:3000/img/${item.cid}`);
-      //const res = await fetch(`https://amaranth-added-parrotfish-511.mypinata.cloud/ipfs/${item.cid}`);
       
       const url = `https://amaranth-added-parrotfish-511.mypinata.cloud/ipfs/${item.cid}?pinataGatewayToken=zPkBFUwZXAHKaaAPXuq5o5AEEqFgqV9eXkrqhnSiRfvNZnwmTuB-fDHfRvyVIdDv`;
       window.open(url,'_blank');
@@ -84,8 +77,8 @@ const Dashboard = () => {
 
   const convertUTC = (bytes32) => {
     const decimal = bytes32ToDecimal(bytes32);
-    const utcDateTime = decimalToUTC(decimal); // Get the UTC date and time string
-    const utcDate = new Date(utcDateTime); // Convert UTC string to a Date object
+    const utcDateTime = decimalToUTC(decimal); 
+    const utcDate = new Date(utcDateTime);
     const istDate = utcDate.toLocaleString("en-US", {
       timeZone: "Asia/Kolkata",
     }); // Convert to IST
@@ -165,11 +158,6 @@ const Dashboard = () => {
             <div className="p-4">
               {selectedImage && (
                 <iframe src="https://amaranth-added-parrotfish-511.mypinata.cloud/ipfs/QmUtMaPZACmApkw9h9N1bLd6avr78kkgqyhAgfRa8ccdP3" height="100px" width="100px"></iframe>
-                // <img
-                //   src={selectedImage}
-                //   alt="Selected Image Preview"
-                //   className="w-full h-auto object-contain rounded-lg"
-                // />
               )}
               {!selectedImage && (
                 <>

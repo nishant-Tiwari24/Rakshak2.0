@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { QRCode } from 'react-qrcode-logo';
-import { toPng } from 'html-to-image'; 
+import { toPng } from 'html-to-image';
 import { saveAs } from 'file-saver';
 
 const PatientList = () => {
@@ -15,7 +15,7 @@ const PatientList = () => {
                 const response = await axios.get('http://localhost:5500/patients');
                 setPatients(response.data);
             } catch (error) {
-                console.error('Error fetching patients:', error.response || error.message);
+                console.error('Error fetching patients:', error);
             }
         };
         fetchPatients();
@@ -26,12 +26,17 @@ const PatientList = () => {
     };
 
     const downloadQRCode = async (id) => {
+        const node = qrCodeRefs.current[id];
+        const dataUrl = await toPng(node);
+        saveAs(dataUrl, `${id}-qrcode.png`);
+    };
+
+    const deletePatient = async (id) => {
         try {
-            const node = qrCodeRefs.current[id];
-            const dataUrl = await toPng(node);
-            saveAs(dataUrl, `${id}-qrcode.png`);
+            await axios.delete(`http://localhost:5500/patients/${id}`);
+            setPatients(patients.filter(patient => patient._id !== id));
         } catch (error) {
-            console.error('Error generating QR code:', error);
+            console.error('Error deleting patient:', error);
         }
     };
 
@@ -54,6 +59,7 @@ const PatientList = () => {
                             <th className="px-6 py-3 text-lg font-bold uppercase border-b border-gray-700">Treatment</th>
                             <th className="px-6 py-3 text-lg font-bold uppercase border-b border-gray-700">QR Code</th>
                             <th className="px-6 py-3 text-lg font-bold uppercase border-b border-gray-700">Download</th>
+                            <th className="px-6 py-3 text-lg font-bold uppercase border-b border-gray-700">Delete</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y text-light divide-zinc-800">
@@ -75,9 +81,10 @@ const PatientList = () => {
                                     <div ref={el => qrCodeRefs.current[patient._id] = el}>
                                         <QRCode 
                                             value={generateQRCodeData(patient)}
-                                            size={50}
                                             includeMargin={true} 
                                         />
+
+                                        
                                     </div>
                                 </td>
                                 <td className="px-6 py-4">
@@ -86,6 +93,14 @@ const PatientList = () => {
                                         className="bg-amber-700 hover:bg-amber-800 text-white font-light py-2 px-4 rounded"
                                     >
                                         Download
+                                    </button>
+                                </td>
+                                <td className="px-6 py-4">
+                                    <button 
+                                        onClick={() => deletePatient(patient._id)} 
+                                        className="bg-red-700 hover:bg-red-800 text-white font-light py-2 px-4 rounded"
+                                    >
+                                        Delete
                                     </button>
                                 </td>
                             </tr>
