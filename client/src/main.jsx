@@ -38,7 +38,7 @@ const router = createBrowserRouter(
       <Route path='/track' element={<Track/>}/>
       <Route path='/revoke' element={<Revoke/>}/>
       <Route path='/revoke/grant' element={<Grantaccess/>}/>
-      <Route path='/meet' element={''}/>
+      <Route path='/meet' element={<VideoCallInput/>}/>
       <Route path='room/:id' element={<VideoConfrence/>}/>
       <Route path='record' element={<PatientRecord/>}/>
       <Route path='recordlist' element={<PatientList/>}/>

@@ -25,7 +25,7 @@ const Share = () => {
     datasets: [
       {
         label: 'Total Data Sent',
-        data: [1, 3, 0, 0, 0, 0, 0],
+        data: [1, 7, 0, 0, 0, 0, 0],
         fill: true,
         borderColor: 'lime',
         tension: 0.1,
@@ -56,7 +56,7 @@ const Share = () => {
                             <h3 className="text-xl font-bold flex items-center">
                                 Total Documents Sent
                             </h3>
-                            <p className="text-3xl">4 Files</p>
+                            <p className="text-3xl">10 Files</p>
                             <p className="text-green-200">100% Last Month</p>
                         </div>
           <Line data={rdata} />
