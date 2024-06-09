@@ -65,28 +65,28 @@ const MainDashboard = () => {
                                 <FaUserMd className="mr-2" /> Total Patients
                             </h3>
                             <p className="text-3xl">{totalPatients}</p>
-                            <p className="text-green-200">{100}% than Last Month</p>
+                            <p className="text-green-200">{2600}% than Last Month</p>
                         </div>
                         <div className="bg-gradient-to-r from-yellow-400 to-yellow-600 p-4 rounded-lg shadow-lg">
                             <h3 className="text-xl font-bold flex items-center">
                                 <FaCalendarAlt className="mr-2" /> Total Appointments
                             </h3>
                             <p className="text-3xl">{totalAppointments}</p>
-                            <p className="text-red-200">{100}% Last Month</p>
+                            <p className="text-red-200">{1200}% Last Month</p>
                         </div>
                         <div className="bg-gradient-to-r from-pink-400 to-pink-600 p-4 rounded-lg shadow-lg">
                             <h3 className="text-xl font-bold flex items-center">
                                 <FaSyringe className="mr-2" /> Total Surgeries
                             </h3>
-                            <p className="text-3xl">20+</p>
-                            <p className="text-green-200">16.4% Last Month</p>
+                            <p className="text-3xl">8</p>
+                            <p className="text-green-200">800% Last Month</p>
                         </div>
                         <div className="bg-gradient-to-r from-purple-400 to-purple-600 p-4 rounded-lg shadow-lg">
                             <h3 className="text-xl font-bold flex items-center">
                                 <FaDollarSign className="mr-2" /> Total Revenue
                             </h3>
                             <p className="text-3xl">$547</p>
-                            <p className="text-green-200">20.6% Last Month</p>
+                            <p className="text-green-200">100% Last Month</p>
                         </div>
                     </div>
                     <PatientDashboard setTotalPatients={setTotalPatients} setTotalAppointments={setTotalAppointments} />
